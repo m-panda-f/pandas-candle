@@ -32,7 +32,7 @@ function App() {
           </p>
           <button className="whatsapp-btn">
             <a
-              href="https://wa.me/9199165882320/?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order%20for%20your%20candles."
+              href="https://wa.me/919916588232/?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order%20for%20your%20candles."
               target="_blank"
               rel="noopener noreferrer"
             >
