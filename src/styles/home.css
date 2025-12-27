@@ -1,0 +1,578 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f2f0;
+  width: 100%; /* Changed from 100vb for better stability */
+  overflow-x: hidden; /* Prevents sideways scrolling on mobile */
+}
+
+/* Container styling */
+nav {
+position: fixed;
+ top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 8%;      /* More horizontal breathing room */
+  background-color: rgba(231, 209, 201, 0.95); /* Semi-transparent */
+  backdrop-filter: blur(10px); /* Modern frosted glass effect */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1000;           /* Keep above the hero image */
+  box-sizing: border-box;
+}
+
+/* Logo styling */
+nav h1 {
+  font-family: "Playfair Display", serif; /* Serif fonts look more "lavish" */
+  font-size: 1.5rem;
+  color: #4a3728; /* Warm candle-like brown/charcoal */
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* List container */
+nav ul {
+  display: flex;
+  gap: 50px; /* Space between links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items (Links) */
+nav ul li {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth color change on hover */
+  position: relative;
+}
+
+
+/* Hover effect */
+nav ul li:hover {
+  color: #d4af37; 
+}
+
+.hero-section {
+  position: relative;
+  width: 99vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;    
+  justify-content: center; 
+  overflow: hidden;
+  color: #fff;          
+  text-align: center;
+}
+
+
+
+/* Dark Overlay (makes text pop) */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Subtle dark tint */
+  z-index: 0;
+}
+
+/* Container for text */
+.container {
+  position: relative;
+  z-index: 1;            /* Sits on top of the overlay */
+  padding: 0 20px;
+}
+
+.image-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 8vw, 3.5rem); /* Added: Scales between 2rem and 3.5rem based on screen size */
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.image-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* The WhatsApp Button */
+button {
+  background-color: #d4af37; /* Gold theme */
+  border: none;
+  padding: 15px 35px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  z-index: -1;
+  animation: slideInFromRight 1.5s ease-out forwards;
+}
+@keyframes slideInFromRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.whatsapp-btn {
+  background-color: #d4af37; 
+  color: #fff !important;   /* White text on gold looks more expensive than black */
+  padding: 18px 40px;
+  border-radius: 50px;      /* Fully rounded corners are more modern */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  border: 1px solid transparent;
+}
+
+.whatsapp-btn:hover {
+  background-color: transparent;
+  border: 1px solid #0cbd64ff;
+  color: #0cbd64ff !important;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(55, 212, 105, 0.3);
+}
+
+.about, .products, .contact {
+  padding: 80px 20px;
+  background-color: #fff;
+  margin: 40px auto; /* Changed: Removed margin-left: 40px to center it on all screens */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Changed from 90vw to 90% for better padding handling */
+  min-height: 100vh; /* Changed from height: 100vh so text doesn't get cut off on mobile */
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+.about-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #4a3728;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.about-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: justify;
+}
+/* Container styling */
+.why-us {
+  margin-top: 80px;
+  padding-bottom: 60px;
+}
+
+.boxes {
+  display: flex;
+  gap: 30px; 
+  margin-top: 60px;
+  justify-content: center;
+  flex-wrap: wrap; /* Added: Allows cards to wrap to the next line on mobile */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prop-card {
+  flex: 1;
+  min-width: auto;
+  max-width: auto;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.prop-card:hover {
+  transform: translateY(-10px);
+}
+
+.icon-wrapper {
+  background-color: #FEF9E7;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+  font-size: 1.5rem;
+}
+
+/* Typography */
+.prop-title {
+  color: #4A3728;
+  font-family: 'Playfair Display', serif; /* Or your preferred headline font */
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.prop-desc {
+  color: #6B5E51;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* About Section adjustments */
+.about-content {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-title {
+  color: #4A3728;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-desc {
+  color: #6B5E51;
+  line-height: 1.8;
+}
+
+/* Container Layout */
+.card-container {
+  display: flex;
+  flex-wrap: nowrap; /* Forces cards to stay side-by-side */
+  gap: 20px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  padding: 20px 5% 40px; /* Added 5% padding to see the next card peaking in */
+  scroll-behavior: smooth;
+  
+  /* Improves scroll feel on mobile */
+  -webkit-overflow-scrolling: touch; 
+  scroll-snap-type: x mandatory; 
+}
+
+.card-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card Styling */
+.product-card {
+ min-width: 280px; /* Fixed width so they don't squish */
+  flex-shrink: 0;   /* Prevents the card from getting smaller */
+  scroll-snap-align: center; /* Adjust to fit 4-5 on large screens */
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-image-wrapper {
+  position: relative;
+  height: 320px;
+  background-color: #f4f4f4;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .card-image-wrapper img {
+  transform: scale(1.08);
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #D4AF37;
+  color: white;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Text & Button Styling */
+.card-details {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-details h3 {
+  font-family: 'Playfair Display', serif;
+  color: #4A3728;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.card-details p {
+  color: #D4AF37;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.order-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #4A3728;
+  color: #4A3728;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+.order-btn:hover {
+  background: #4A3728;
+  color: white;
+}
+.contact-section {
+  display: flex;
+  flex-wrap: wrap; /* Added: Allows image and text to stack */
+  align-items: center;
+  padding: 60px 5%; /* Adjusted padding for better fit */
+  min-height: 70vh; /* Changed from height to min-height */
+  gap: 40px;
+  background-color: #faf9f6;
+  border-radius: 12px;
+}
+
+.contact-right {
+  flex: 2;
+  min-width: 400px;
+}
+.contact-right h2 {
+  font-family: 'Playfair Display', serif; /* Or any elegant serif font */
+  font-size: 2.5rem;
+  color: #2c2c2c;
+  margin-bottom: 20px;
+}
+.contact-right p {
+  font-family: 'Playfair Display', serif;;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.contact-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-left img {
+  width: 100%;
+  border-radius: 20px;
+  margin-left: 50px;
+  box-shadow: 20px 20px 0px #e7d1c9; /* Stylish accent border */
+}
+
+footer{
+  background-color: #fff;
+  width: 99vw;
+  margin-top: 0;
+  height: 40vh;
+}
+
+.footer-card{
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
+  text-align: center;
+  
+}
+.Logo{
+  font-family: "Playfair Display", serif; 
+  font-size: 1.5rem;
+  color: #4a3728; 
+  margin: 0;
+  text-align: start;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.social-media {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+.copyright{
+  text-align: center;
+  margin-top: 30px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.insta-btn{
+  background: #d4af37;
+  color: #fff !important;   /* White text on gold looks more expensive than black */
+  padding: 18px 40px;
+  border-radius: 50px;      /* Fully rounded corners are more modern */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  border: 1px solid transparent;
+}
+.insta-btn:hover {
+  background: transparent;
+  border: 1px solid #d437d4ff;
+  color: #d4af37 !important;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(181, 55, 212, 0.3);
+}
+
+/* --- Hamburger Menu Styling --- */
+.mobile-nav-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.mobile-nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #4a3728;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* --- Responsive Media Query --- */
+@media (max-width: 768px) {
+  /* Show toggle button */
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  /* Hide Nav Links initially and style as a dropdown */
+  nav ul {
+    display: none; /* We will toggle this with JS */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(231, 209, 201, 0.98);
+    padding: 20px 0;
+    gap: 20px;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Show menu when 'active' class is added via JS */
+  nav ul.active {
+    display: flex;
+  }
+
+  /* Fix Hero Text for Mobile */
+  .image-title {
+    font-size: 2.2rem;
+  }
+
+  /* Stack Contact Section */
+  .contact-section {
+    flex-direction: column;
+    padding: 40px 5%;
+    text-align: center;
+  }
+
+  .contact-left {
+    order: 2; /* Move image below text on mobile */
+    min-width: 100%;
+  }
+
+  .contact-left img {
+    margin-left: 0; /* Remove that large desktop margin */
+    width: 90%;
+    box-shadow: 10px 10px 0px #e7d1c9;
+  }
+
+  .contact-right {
+    min-width: 100%;
+    order: 1;
+  }
+
+  /* Adjust About and Product sections */
+  .about, .products {
+    width: 95%;
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    gap: 15px;
+    /* This allows the first card to align nicely with your page margins */
+    padding-left: 20px; 
+    padding-right: 20px;
+  }
+  
+  .product-card {
+    min-width: 260px; /* Slightly smaller for mobile screens */
+  }
+
+  /* Optional: Add a subtle indicator that there's more to scroll */
+  .best-sellers::after {
+    content: 'Swipe for more →';
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #d4af37;
+    margin-top: -20px;
+    opacity: 0.7;
+  }
+  .card-image-wrapper {
+    /* Slightly reduce height on mobile to save vertical space */
+    height: 280px;
+  }
+}
